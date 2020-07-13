@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import BottomRow from "./BottomRow";
 import TopRow from './TopRow'
 import Buttons from './Buttons'
-import "./App.css";
+import "../App.css";
 
 function App() {
   const [homeScore, setHomeScore] = useState(0)
