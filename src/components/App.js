@@ -10,7 +10,6 @@ function App() {
   const [quarter, setQuarter] = useState(1)
   const [timer, setTimer] = useState(5)
   const [id, setId] = useState('')
-  let x;
 
   useEffect(() => {
     if (timer === 5) {
@@ -19,10 +18,15 @@ function App() {
         setTimer(prevTimer => prevTimer - 1)
       }, 1000);
     }
-    if (timer === 0) {
+    if (timer < 0 && quarter !== 4) {
+      setQuarter(quarter + 1)
+      clearInterval(id)
+      setTimer(5)
+    } else if (timer === 0 && quarter === 4) {
       clearInterval(id)
     }
   }, [timer])
+
 
   return (
     <div className="container">
